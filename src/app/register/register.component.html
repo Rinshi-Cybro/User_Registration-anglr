@@ -1,0 +1,178 @@
+<div class="container">
+    <div class="card">
+        <h2 class="bg-info text-light text-center">USER REGISTRATION</h2>
+        
+        <form #myForm="ngForm" (ngSubmit)="SubmitRegister(myForm.value)">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>First Name:</mat-label>
+                        <input type="text" class="form-control" name="FirstName" [(ngModel)]="userData.FirstName"
+                            matInput placeholder="Enter first name">
+                        <!-- <mat-error *ngIf="ngForm.get('FirstName').errors?.required">
+                                First Name is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Last Name:</mat-label>
+                        <input type="text" class="form-control" name="LastName" [(ngModel)]="userData.LastName" matInput
+                            placeholder="Enter last name">
+                        <!-- <mat-error *ngIf="ngForm.get('LastName').errors?.required">
+                                Last Name is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Gender:</mat-label>
+                        <mat-select class="" name="gender" [(ngModel)]="userData.gender" matInput
+                            placeholder="Select your gender">
+                            <mat-option value="male">Male</mat-option>
+                            <mat-option value="fmale">Female</mat-option>
+                            <mat-option value="other">Other</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="ngForm.get('gender').errors?.required">
+                                Gender is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Country:</mat-label>
+                        <mat-select class="" name="country" [(ngModel)]="userData.country" matInput
+                            placeholder="Select your Country">
+                            <mat-option value="us">United States</mat-option>
+                            <mat-option value="canada">Canada</mat-option>
+                            <mat-option value="uk">United Kingdom</mat-option>
+                            <mat-option value="australia">Australia</mat-option>
+                            <mat-option value="ind">India</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="ngForm.get('country').errors?.required">
+                                Country is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Email:</mat-label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="userData.email" matInput
+                            placeholder="Enter email">
+                        <!-- <mat-error *ngIf="ngForm.get('email').errors?.required">
+                                Email is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>User Name:</mat-label>
+                        <input type="text" class="form-control" name="UserName" [(ngModel)]="userData.UserName" matInput
+                            placeholder="Enter user name">
+                        <!-- <mat-error *ngIf="ngForm.get('UserName').errors?.required">
+                                User name is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Password:</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" class="form-control" name="passwd"
+                            [(ngModel)]="userData.passwd" placeholder="Enter password">
+                        <mat-icon (click)="hide = !hide" matSuffix> {{hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                        <!-- <mat-error *ngIf="ngForm.get('passwd').errors?.required">
+                                Password is required!
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Confirm Password:</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" class="form-control" name="cpasswd"
+                            [(ngModel)]="userData.cpasswd" placeholder="Enter confirm password">
+                        <mat-icon (click)="hide = !hide" matSuffix> {{hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                        <!-- <mat-error *ngIf="ngForm.get('cpasswd').errors?.required">
+                                Confirm Password is required!
+                            </mat-error>  -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Date of Birth:</mat-label>
+                        <input matInput [matDatepicker]="picker" class="form-control" name="Dob"
+                            [(ngModel)]="userData.Dob" placeholder="Choose Date of Birth" readonly="">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <!-- <mat-error *ngIf="ngForm.get('Dob').errors?.required">
+                                Dob is required!
+                            </mat-error>  -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Pin Code:</mat-label>
+                        <input matInput #postalCode [maxlength]="6" class="form-control" name="pincode"
+                            [(ngModel)]="userData.pincode" placeholder="Enter Postal Code">
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                        <!-- <mat-error *ngIf="ngForm.get('pincode').errors?.required">
+                                Pin code is required!
+                            </mat-error>  -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6" style="height: 270px;">
+                    <img [src]="url" id="photo">
+                    <input type="file" class="" id="image" name="profilePhoto" (change)="onselectFiles($event)"
+                        [(ngModel)]="userData.profilePhoto">
+                    <mat-label for="file" id="uploadBtn">Upload Photo:</mat-label>
+                    <!-- <mat-error *ngIf="ngForm.get('profilePhoto').errors?.required">
+                                Profile Pic is required!
+                            </mat-error>  -->
+                </div>
+            </div><br>
+
+            <div class="container">
+                <div class="row" style="display:flex; justify-content: flex-end">
+                    <div class="col-md-3">
+                        <button type="submit" mat-raised-button color="primary" style="width:100%">Register</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="reset" mat-raised-button color="accent" style="width:100%">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

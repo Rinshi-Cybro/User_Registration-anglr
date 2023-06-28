@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card">
+        <h2 class="bg-success text-light text-center">REGISTERED USER LIST</h2>
+        <table class="table table-bordered table">
+            <thead>
+                <tr class="col-md-6">
+                    <th>Sr No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Date of Birth</th>
+                    <th>Profile Photo</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Using Dynamic retriving of data -->
+                <!-- Using *ngFor  Dirctives -->
+                <tr *ngFor="let datas of user_records; let i = index">
+                    <!-- <td>{{i+1}}</td> -->
+                    <td>{{datas.userId}}</td>
+                    <td>{{datas.FirstName}}</td>
+                    <td>{{datas.LastName}}</td>
+                    <td>{{datas.gender}}</td>
+                    <td>{{datas.country}}</td>
+                    <td>{{datas.email}}</td>
+                    <td>{{datas.UserName}}</td>
+                    <td>{{datas.Dob}}</td>
+                    <td>{{datas.profilePhoto}}</td>
+                    <!-- <td><img src="{{datas.profilePhoto}}"></td> -->
+                    <td>
+                        <!-- <button type="button" class="btn btn-sm btn-success" [routerLink]="['/updateUser',datas.userId]">Edit</button> -->
+                        <button type="button" class="btn btn-sm btn-success m-2"
+                            (click)="onEdit(datas.userId)">Edit</button>
+                        <button type="button" class="btn btn-sm btn-danger m-2"
+                            (click)="onDelete(datas.userId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

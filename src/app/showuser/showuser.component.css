@@ -1,0 +1,20 @@
+.container {
+    text-align: center;
+    width: 100%;
+
+}
+
+.container .card {
+    background-color:rgb(175, 224, 194);
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-top: 3%;
+}
+
+table button {
+    width: 90%;
+    padding: 4;
+    /* margin:6% */
+    
+}

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card">
+        <h2 class="bg-info text-light text-center">USER LOGIN</h2><br>
+        <form #myLogin="ngForm" (ngSubmit)="doLogin(myLogin.value)">
+            <p>
+                <mat-form-field appearance="outline" class="field">
+                    <mat-label>Email:</mat-label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="userData.email" matInput
+                        placeholder="Enter email" required="Email is required!">
+                    <!-- <mat-error *ngIf="ngForm.get('email').errors?.required">
+                        Email is required!
+                    </mat-error> -->
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="outline" class="field">
+                    <mat-label>Password:</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" class="form-control" name="passwd"
+                        [(ngModel)]="userData.passwd" placeholder="Enter password" required="Password is required!">
+                    <mat-icon (click)="hide = !hide" matSuffix> {{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
+                    <!-- <mat-error *ngIf="ngForm.get('passwd').errors?.required">
+                            Password is required!
+                        </mat-error>    -->
+                </mat-form-field>
+            </p>
+
+            <div class="send">
+                <button type="submit" mat-raised-button color="primary" style="width:20%">Login</button>
+                <!-- <button type="submit" class="btn btn-primary"style="width:100%" id="Update">Update</button> -->
+                <button type="reset" mat-raised-button color="accent" style="width: 20%">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

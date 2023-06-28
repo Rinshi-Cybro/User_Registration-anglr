@@ -1,0 +1,39 @@
+.container {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 2%;
+}
+
+.container .card {
+    background-color:lightblue;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 1%;
+} 
+
+.container form {
+    display:contents;
+    justify-content: space-between;
+    margin: 15px 0 18px 0;
+} 
+
+.send button {
+    margin: 11px;
+    position:relative;
+    align-items: center;    
+}
+
+form mat-label {
+    font-weight: 410;
+}
+
+
+.container form mat-form-field {
+    width: 50%;
+}
+
+
+
+
